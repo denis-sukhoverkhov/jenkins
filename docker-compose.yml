@@ -1,0 +1,13 @@
+version: '2'
+services:
+  jenkins:
+    restart: always
+    build:
+      context: ./jenkins
+    ports:
+      - '8080:8080'
+#      - '443:8443'
+      - '50000:50000'
+    volumes:
+      - ./dockerfiles/jenkins_data:/var/jenkins_home
+    privileged: true
